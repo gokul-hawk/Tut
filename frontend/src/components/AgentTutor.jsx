@@ -206,13 +206,21 @@ const KeyConceptsPanel = () => {
     );
 };
 
-const QuizPanel = ({ messages }) => {
+const QuizPanel = ({ messages, onQuizComplete, autoStart }) => {
     const [quiz, setQuiz] = useState([]);
     const [loading, setLoading] = useState(false);
     const [answers, setAnswers] = useState({});
     const [showResult, setShowResult] = useState(false);
+    const mounted = useRef(false);
 
     const getCorrectAnswer = (q) => q.correct_answer ?? q.answer ?? q.correct ?? null;
+
+    useEffect(() => {
+        if (autoStart && !mounted.current && messages.length > 0) {
+            mounted.current = true;
+            generateQuiz();
+        }
+    }, [autoStart, messages]);
 
     const generateQuiz = async () => {
         setLoading(true);
@@ -313,7 +321,18 @@ const QuizPanel = ({ messages }) => {
                         ))}
 
                         {!showResult && (
-                            <button onClick={() => setShowResult(true)} className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/20 transition-all active:scale-98">
+                            <button onClick={() => {
+                                setShowResult(true);
+                                // Calculate Score and Notify Parent
+                                let correctCount = 0;
+                                quiz.forEach((q, i) => {
+                                    const correctAns = q.correct_answer ?? q.answer ?? q.correct;
+                                    if (answers[i] === correctAns) correctCount++;
+                                });
+                                if (onQuizComplete) {
+                                    onQuizComplete({ correct: correctCount, total: quiz.length });
+                                }
+                            }} className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/20 transition-all active:scale-98">
                                 Submit & Check Answers
                             </button>
                         )}
@@ -390,7 +409,7 @@ const NotesPanel = ({ messages }) => {
 };
 
 // ─────────────── CHAT AREA ───────────────
-const ChatArea = ({ messages, setMessages, setVisualizationContent, setActiveTab }) => {
+const ChatArea = ({ messages, setMessages, setVisualizationContent, setActiveTab, setAutoStartQuiz }) => {
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
     const chatEndRef = useRef(null);
@@ -416,43 +435,23 @@ const ChatArea = ({ messages, setMessages, setVisualizationContent, setActiveTab
 
             // 2. Handle Completion (Agent Flow) -- CUSTOM AGENT HANDLER
             if (data.is_complete) {
-                console.log("Topic Complete! Reporting to Agent...");
-                try {
-                    const tokenData = localStorage.getItem("user");
-                    const token = tokenData ? JSON.parse(tokenData).access : null;
-                    const headers = token ? { "Authorization": `Bearer ${token}` } : {};
+                console.log("Topic Complete! Triggering Quiz...");
 
-                    // Report success to Main Agent with source: tutor
-                    const successRes = await axios.post(
-                        "http://localhost:8000/api/main-agent/report_success/",
-                        { source: "tutor" },
-                        { headers }
-                    );
-                    console.log("Success Response:", successRes.data);
+                // Show completion message
+                setMessages(prev => [...prev, { sender: "bot", text: `${data.reply}\n\n🎉 Topic Covered! Let's take a quick quiz to verify your mastery.` }]);
 
-                    if (successRes.data.action) {
-                        const action = successRes.data.action;
+                // Enforce Quiz Flow
+                setVisualizationContent(null); // Clear vis to focus on quiz
+                setActiveTab("quiz");
 
-                        // Show completion message
-                        setMessages(prev => [...prev, { sender: "bot", text: `${data.reply}\n\n🚀 ${successRes.data.reply}` }]);
-
-                        // Handle Navigation
-                        setTimeout(() => {
-                            if (action.view === 'code') navigate(`/agent-code?topic=${encodeURIComponent(action.data?.topic)}`);
-                            if (action.view === 'debugger') navigate(`/agent-debugger?topic=${encodeURIComponent(action.data?.topic)}`);
-                            if (action.view === 'Gaps') navigate(`/agent-quiz?topic=${encodeURIComponent(action.data?.topic)}`);
-                            if (action.view === 'tutor') {
-                                // Only navigate if different or state updates needed
-                                // For tutor -> tutor transitions, we might just update messages, but navigation ensures clean state
-                                navigate('/agent-tutor', { state: { initialMessage: successRes.data.reply } });
-                            }
-                            if (action.view === 'dashboard') navigate('/');
-                        }, 2000);
-
-                        return; // Stop local message handling since we are moving/resetting
-                    }
-                } catch (e) {
-                    console.error("Agent Reporting Error", e);
+                // Signal AgentTutor to auto-start the quiz in the panel
+                // We need to pass this state down.
+                // Note: The parent component needs to manage this state trigger.
+                // Since this function is inside ChatArea, and setActiveTab is passed down,
+                // we might need a setAutoStartQuiz callback? 
+                // Yes, ChatArea needs setAutoStartQuiz prop.
+                if (typeof setAutoStartQuiz === 'function') {
+                    setAutoStartQuiz(true);
                 }
             }
 
@@ -609,6 +608,7 @@ export default function AgentTutor() {
     const [darkMode, setDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
     const [visualizationContent, setVisualizationContent] = useState(null);
     const [isRegenerating, setIsRegenerating] = useState(false);
+    const [autoStartQuiz, setAutoStartQuiz] = useState(false);
 
     const handleRegenerate = async () => {
         setIsRegenerating(true);
@@ -655,6 +655,46 @@ export default function AgentTutor() {
         }
     }, [topic, initialMessage]);
 
+    // HANDLER: Quiz Completion -> Backend Score Update
+    const handleQuizComplete = async (stats) => {
+        console.log("Quiz Complete! Stats:", stats);
+        try {
+            const tokenData = localStorage.getItem("user");
+            const token = tokenData ? JSON.parse(tokenData).access : null;
+            const headers = token ? { "Authorization": `Bearer ${token}` } : {};
+
+            const res = await axios.post(
+                "http://localhost:8000/api/main-agent/report_success/",
+                {
+                    source: "tutor",
+                    quiz_stats: stats
+                },
+                { headers }
+            );
+
+            // Show success message from backend
+            setMessages(prev => [...prev, { sender: "bot", text: `Quiz Result: ${stats.correct}/${stats.total}\n\n${res.data.reply}` }]);
+
+            // Handle Action (Navigation)
+            if (res.data.action) {
+                const action = res.data.action;
+                setTimeout(() => {
+                    if (action.view === 'code') navigate(`/agent-code?topic=${encodeURIComponent(action.data?.topic)}`);
+                    if (action.view === 'tutor') {
+                        // Refresh Tutor (New Topic)
+                        navigate('/agent-tutor', { state: { initialMessage: res.data.reply } });
+                        // Force reload if same route? modify key?
+                        // For now, react-router handles state updates well.
+                    }
+                }, 2000);
+            }
+
+        } catch (e) {
+            console.error("Quiz Report Error:", e);
+            setMessages(prev => [...prev, { sender: "bot", text: "Error submitting quiz result." }]);
+        }
+    };
+
 
     return (
         <div className="flex w-screen h-screen bg-white dark:bg-slate-950 font-sans overflow-hidden">
@@ -677,7 +717,7 @@ export default function AgentTutor() {
                     </div>
                 </header>
                 <div className="flex-1 overflow-hidden relative">
-                    <ChatArea messages={messages} setMessages={setMessages} setVisualizationContent={setVisualizationContent} setActiveTab={setActiveTab} />
+                    <ChatArea messages={messages} setMessages={setMessages} setVisualizationContent={setVisualizationContent} setActiveTab={setActiveTab} setAutoStartQuiz={setAutoStartQuiz} />
                 </div>
             </div>
 
@@ -686,7 +726,10 @@ export default function AgentTutor() {
                 <div className="flex-1 overflow-hidden">
                     {activeTab === "concepts" && <KeyConceptsPanel />}
                     {activeTab === "visualizer" && <VisualizerRenderer htmlContent={visualizationContent} onRegenerate={handleRegenerate} isRegenerating={isRegenerating} />}
-                    {activeTab === "quiz" && <QuizPanel messages={messages} />}
+                    {activeTab === "concepts" && <KeyConceptsPanel />}
+                    {activeTab === "visualizer" && <VisualizerRenderer htmlContent={visualizationContent} onRegenerate={handleRegenerate} isRegenerating={isRegenerating} />}
+                    {activeTab === "quiz" && <QuizPanel messages={messages} onQuizComplete={handleQuizComplete} autoStart={autoStartQuiz} />}
+                    {activeTab === "notes" && <NotesPanel messages={messages} />}
                     {activeTab === "notes" && <NotesPanel messages={messages} />}
                 </div>
             </div>

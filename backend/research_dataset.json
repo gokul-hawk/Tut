@@ -1,0 +1,5408 @@
+[
+  {
+    "id": "lucky_0",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 12,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "hard",
+          "passed": false,
+          "ai_usage": 15,
+          "test_failures": 1
+        },
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 7,
+          "test_failures": 2
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 9
+      }
+    }
+  },
+  {
+    "id": "lucky_1",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 10,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 5,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 12
+      }
+    }
+  },
+  {
+    "id": "lucky_2",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 14,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 10,
+          "test_failures": 5
+        },
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 10,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 4
+      }
+    }
+  },
+  {
+    "id": "lucky_3",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 11,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 8
+      }
+    }
+  },
+  {
+    "id": "lucky_4",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 7,
+          "test_failures": 1
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 14,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 4,
+        "explanation_len": 10
+      }
+    }
+  },
+  {
+    "id": "lucky_5",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 12,
+          "test_failures": 4
+        },
+        {
+          "difficulty": "hard",
+          "passed": false,
+          "ai_usage": 11,
+          "test_failures": 4
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 8
+      }
+    }
+  },
+  {
+    "id": "lucky_6",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 13,
+          "test_failures": 5
+        }
+      ],
+      "debug": {
+        "attempts": 4,
+        "explanation_len": 11
+      }
+    }
+  },
+  {
+    "id": "lucky_7",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 7,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 12,
+          "test_failures": 4
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 4
+      }
+    }
+  },
+  {
+    "id": "lucky_8",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 10,
+          "test_failures": 4
+        },
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 14,
+          "test_failures": 4
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 13,
+          "test_failures": 5
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 13
+      }
+    }
+  },
+  {
+    "id": "lucky_9",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 5,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 8,
+          "test_failures": 1
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 13,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 12
+      }
+    }
+  },
+  {
+    "id": "lucky_10",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 15,
+          "test_failures": 4
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 10
+      }
+    }
+  },
+  {
+    "id": "lucky_11",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": false,
+          "ai_usage": 11,
+          "test_failures": 5
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 10
+      }
+    }
+  },
+  {
+    "id": "lucky_12",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 7,
+          "test_failures": 5
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 9,
+          "test_failures": 5
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 13
+      }
+    }
+  },
+  {
+    "id": "lucky_13",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": false,
+          "ai_usage": 14,
+          "test_failures": 5
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 6,
+          "test_failures": 2
+        },
+        {
+          "difficulty": "hard",
+          "passed": false,
+          "ai_usage": 8,
+          "test_failures": 1
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 1
+      }
+    }
+  },
+  {
+    "id": "lucky_14",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 9,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 9,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 7
+      }
+    }
+  },
+  {
+    "id": "lucky_15",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": false,
+          "ai_usage": 9,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 3
+      }
+    }
+  },
+  {
+    "id": "lucky_16",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": false,
+          "ai_usage": 7,
+          "test_failures": 2
+        },
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 7,
+          "test_failures": 4
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 1
+      }
+    }
+  },
+  {
+    "id": "lucky_17",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 15,
+          "test_failures": 5
+        },
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 11,
+          "test_failures": 5
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 4
+      }
+    }
+  },
+  {
+    "id": "lucky_18",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 5,
+          "test_failures": 2
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 5
+      }
+    }
+  },
+  {
+    "id": "lucky_19",
+    "category": "Lucky Guesser",
+    "ground_truth_mastery": 0,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": false,
+          "ai_usage": 14,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "hard",
+          "passed": false,
+          "ai_usage": 14,
+          "test_failures": 2
+        },
+        {
+          "difficulty": "hard",
+          "passed": false,
+          "ai_usage": 6,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 8
+      }
+    }
+  },
+  {
+    "id": "expert_0",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 194
+      }
+    }
+  },
+  {
+    "id": "expert_1",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 4,
+        "explanation_len": 279
+      }
+    }
+  },
+  {
+    "id": "expert_2",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 216
+      }
+    }
+  },
+  {
+    "id": "expert_3",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 4
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 349
+      }
+    }
+  },
+  {
+    "id": "expert_4",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 128
+      }
+    }
+  },
+  {
+    "id": "expert_5",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 346
+      }
+    }
+  },
+  {
+    "id": "expert_6",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 4
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 358
+      }
+    }
+  },
+  {
+    "id": "expert_7",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 5
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 4,
+        "explanation_len": 287
+      }
+    }
+  },
+  {
+    "id": "expert_8",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 330
+      }
+    }
+  },
+  {
+    "id": "expert_9",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 4,
+        "explanation_len": 290
+      }
+    }
+  },
+  {
+    "id": "expert_10",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 4
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 202
+      }
+    }
+  },
+  {
+    "id": "expert_11",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 4
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 4,
+        "explanation_len": 273
+      }
+    }
+  },
+  {
+    "id": "expert_12",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 5
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 210
+      }
+    }
+  },
+  {
+    "id": "expert_13",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 159
+      }
+    }
+  },
+  {
+    "id": "expert_14",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 205
+      }
+    }
+  },
+  {
+    "id": "expert_15",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 4,
+        "explanation_len": 290
+      }
+    }
+  },
+  {
+    "id": "expert_16",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 146
+      }
+    }
+  },
+  {
+    "id": "expert_17",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 2,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 66
+      }
+    }
+  },
+  {
+    "id": "expert_18",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 5
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        },
+        {
+          "difficulty": "easy",
+          "passed": true,
+          "ai_usage": 1,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 364
+      }
+    }
+  },
+  {
+    "id": "expert_19",
+    "category": "Instant Expert",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 4
+      },
+      "code": [
+        {
+          "difficulty": "hard",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 351
+      }
+    }
+  },
+  {
+    "id": "struggle_0",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 84
+      }
+    }
+  },
+  {
+    "id": "struggle_1",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 151
+      }
+    }
+  },
+  {
+    "id": "struggle_2",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 51
+      }
+    }
+  },
+  {
+    "id": "struggle_3",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 50
+      }
+    }
+  },
+  {
+    "id": "struggle_4",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 140
+      }
+    }
+  },
+  {
+    "id": "struggle_5",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 151
+      }
+    }
+  },
+  {
+    "id": "struggle_6",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 60
+      }
+    }
+  },
+  {
+    "id": "struggle_7",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 43
+      }
+    }
+  },
+  {
+    "id": "struggle_8",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 147
+      }
+    }
+  },
+  {
+    "id": "struggle_9",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 152
+      }
+    }
+  },
+  {
+    "id": "struggle_10",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 107
+      }
+    }
+  },
+  {
+    "id": "struggle_11",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 60
+      }
+    }
+  },
+  {
+    "id": "struggle_12",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 99
+      }
+    }
+  },
+  {
+    "id": "struggle_13",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 48
+      }
+    }
+  },
+  {
+    "id": "struggle_14",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 152
+      }
+    }
+  },
+  {
+    "id": "struggle_15",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 141
+      }
+    }
+  },
+  {
+    "id": "struggle_16",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 151
+      }
+    }
+  },
+  {
+    "id": "struggle_17",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 156
+      }
+    }
+  },
+  {
+    "id": "struggle_18",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "code",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "ai_usage": 0,
+          "test_failures": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 109
+      }
+    }
+  },
+  {
+    "id": "struggle_19",
+    "category": "Deep Struggle",
+    "ground_truth_mastery": 1,
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 0
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "ai_usage": 0,
+          "test_failures": 3
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 89
+      }
+    }
+  },
+  {
+    "id": "inconsistent_0",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_1",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_2",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 4
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_3",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_4",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_5",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_6",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_7",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_8",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_9",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_10",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 2,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_11",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 4,
+        "correct": 4
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_12",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 2
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_13",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 3,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_14",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 5
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 4,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_15",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 3,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_16",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 4
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_17",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 1,
+        "correct": 1
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 1,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_18",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 5
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 5,
+        "explanation_len": 40
+      }
+    }
+  },
+  {
+    "id": "inconsistent_19",
+    "category": "Inconsistent",
+    "events": [
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        true
+      ],
+      [
+        "tutor",
+        false
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "code",
+        true
+      ],
+      [
+        "code",
+        false
+      ],
+      [
+        "debug",
+        true
+      ],
+      [
+        "debug",
+        true
+      ]
+    ],
+    "scoring": {
+      "tutor": {
+        "total": 5,
+        "correct": 3
+      },
+      "code": [
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": true,
+          "test_failures": 1,
+          "ai_usage": 0
+        },
+        {
+          "difficulty": "medium",
+          "passed": false,
+          "test_failures": 1,
+          "ai_usage": 0
+        }
+      ],
+      "debug": {
+        "attempts": 2,
+        "explanation_len": 40
+      }
+    }
+  }
+]

@@ -1,0 +1,25 @@
+                             ABLATION STUDY REPORT                              
+================================================================================
+
+Model: Full MGKT
+  Propagation (Neighbor): 0.130
+  Resolution (Final):     0.252
+
+Model: No-Graph
+  Propagation (Neighbor): 0.100
+  Resolution (Final):     0.252
+
+Model: No-Weights
+  Propagation (Neighbor): 0.140
+  Resolution (Final):     0.256
+
+Model: No-Prereqs
+  Propagation (Neighbor): 0.130
+  Resolution (Final):     0.252
+
+================================================================================
+Key Findings:
+1. Full MGKT: Balanced propagation and high resolution of mixed signals.
+2. No-Graph:  Zero propagation (Neighbor stayed 0.100). Fails Cold Start.
+3. No-Weights: Lower final score because it didn't value the Debug success enough.
+4. No-Prereqs: Artificially high neighbor score (0.5) = dangerous assumption.

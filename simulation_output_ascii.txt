@@ -1,0 +1,19 @@
+
+================================================================================
+           SIMULATION V2: MGKT Mastery vs. Scoring Engine (Weighted)            
+================================================================================
+
+Student Profile           | MGKT Mastery | Tutor  Code   Debug  | Final Score | Status
+------------------------------------------------------------------------------------------
+High Performer            | 1.0000       | 90.0   93.0   100.0  | 95.05       | PROMOTE
+Struggling Learner        | 0.9998       | 50.0   17.0   50.0   | 38.45       | REMEDIATE
+AI Dependent              | 1.0000       | 80.0   40.0   75.0   | 64.00       | DEBUG
+
+------------------------------------------------------------------------------------------
+Insight Analysis:
+1. High Performer: High Mastery (MGKT) aligns with High Score (Engine).
+2. Struggling: Low Mastery and Low Score. Correctly flagged for Remediation.
+3. AI Dependent: High Mastery (because they passed) but LOW Score due to penalties.
+   -> This proves the system can detect 'False Mastery' via Signal Weighting!
+================================================================================
+

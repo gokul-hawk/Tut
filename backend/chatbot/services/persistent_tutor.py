@@ -6,11 +6,19 @@ import os
 import json
 import re
 from .groq_service import GroqService
+from .rl_selector import RLSelector
+from .gkt_model import GKTModel
 
 # Configure Groq
 # genai.configure... (REMOVED)
 # model = genai.GenerativeModel("gemini-2.5-flash") (REMOVED)
 groq_service = GroqService()
+rl_agent = RLSelector()
+gkt_model = GKTModel()
+
+from .recommendation_service import RecommendationService
+recommendation_service = RecommendationService()
+
 
 def get_or_create_session(user):
     # User is a Mongo Document. We use email as the stable key.
@@ -122,11 +130,17 @@ def teach_content(subtopic, style="Socratic"):
 
     Your goal is to teach this specific subtopic clearly and effectively.
     
+    STRUCTURE:
+    1. **Explanation**: Explain the concept clearly using metaphors, code examples, and humor.
+    2. **Check for Understanding**: End with **EXACTLY ONE** specific question to check if the user understood. Do NOT ask multiple questions.
+    
     OUTPUT FORMAT:
     Please provide the response in two clearly marked blocks. Do not use JSON.
     
     [CONTENT]
     (Your explanation text here. Use markdown for formatting.)
+    
+    (Your single follow-up question here)
     [/CONTENT]
     
     [VISUALIZATION]
@@ -137,7 +151,10 @@ Your task is to generate a complete, self-contained **single-page HTML document*
 RULES:
 1. Respond ONLY with the plain HTML document as a single string (start with <!DOCTYPE html> and include <html> ...). Do NOT wrap the output in JSON, Markdown, comments, or any additional text.
 2. The document MUST include Tailwind CSS loaded via CDN (https://cdn.tailwindcss.com) and use Tailwind utility classes for styling. Do NOT include external CSS files other than the Tailwind CDN.
-3. Use only plain, vanilla JavaScript for interactivity. Do NOT use React, Vue, or any other frameworks/libraries. You may include inline <script> tags inside the HTML file.
+3. Use Vanilla JavaScript for simple logic. **For Graph/Tree/Network visualizations, YOU MUST USE D3.js (v7)** via CDN (https://d3js.org/d3.v7.min.js).
+   - Use **Force-Directed Layout** (d3.forceSimulation) for connected data.
+   - Use **Tree Layout** (d3.tree) for hierarchies.
+   - Make it beautiful and animated.
 4. The page MUST include at least two visible controls labeled "Next Step" and "Reset" to control the visualization, and display the current step index.
 5. The HTML should be self-contained and runnable inside an iframe (no module imports, no ESM import/export statements, no external network calls other than the Tailwind CDN).
 6. Ensure all DOM element IDs and classes are unique and descriptive to avoid collisions when embedded in an iframe.
@@ -186,6 +203,8 @@ Steps:
     - Use clean vanilla JS.
     """
     response_text = groq_service.generate_content(prompt)
+    if not response_text:
+        return {"content": f"I apologize, I'm having trouble retrieving the lesson for **{subtopic}** right now. Could we try again?", "visualization": None}
 
     # Parse Blocks using Regex
     content_match = re.search(r'\[CONTENT\](.*?)\[/CONTENT\]', response_text, re.DOTALL)
@@ -194,6 +213,10 @@ Steps:
     content = content_match.group(1).strip() if content_match else response_text
     visualization = viz_match.group(1).strip() if viz_match else None
     
+    # Validation: If content effectively empty, use fallback
+    if len(content) < 10:
+        content = f"**{subtopic}**\n\nLet's get started. What do you already know about this?"
+
     # Generic cleanup for empty viz
     if visualization and len(visualization) < 20: 
         visualization = None
@@ -218,6 +241,7 @@ def regenerate_visualization(topic):
     REQUIREMENTS:
     1. **Self-Contained**: Must be a single HTML file with embedded CSS/JS.
     2. **Visual Appeal**: Use modern UI. You MAY use TailwindCSS via CDN: <script src="https://cdn.tailwindcss.com"></script>.
+       **Use D3.js (v7)** via CDN (https://d3js.org/d3.v7.min.js) for any graph/network animations. Use **Force-Directed Layouts** where applicable.
     3. **Interactivity**: Include buttons (e.g., "Step", "Play", "Reset") to control the animation.
     4. **Robustness**: Handle edge cases (empty input, etc.). NO PLACEHOLDERS like "// code here". Write the FULL logic.
     5. **Educational**: Show the "State" of the algorithm clearly (e.g., highlighting array indices being compared).
@@ -296,19 +320,34 @@ def start_new_topic(user, topic, is_revision=False):
     session.current_topic = topic
     
     # Generate Rich Roadmap
-    roadmap_md, steps = generate_subtopics_python(topic, is_revision=is_revision)
-    session.subtopics = steps
-             
+    # Generate Rich Roadmap (Visual Only)
+    roadmap_md, _ = generate_subtopics_python(topic, is_revision=is_revision)
+    
+    # DYNAMIC INIT: Consultant the GAT BRAIN first
+    next_step = recommendation_service.get_next_best_step(user.email, topic)
+    
+    if next_step:
+        # GAT found a specific starting point
+        session.subtopics = [next_step]
+        roadmap_msg = f"Welcome! 🧠 **Knowledge Graph Analysis Complete**.\n\nBased on your mastery profile, the best starting point for **{topic}** is:\n\n# 🚀 **{next_step}**\n\nThe AI predicts you are **100% Ready** for this concept.\n\nShall we start?"
+    else:
+        # Fallback (Graph empty or topic unknown) -> Use LLM
+        roadmap_md, steps = generate_subtopics_python(topic, is_revision=is_revision)
+        session.subtopics = steps
+        roadmap_msg = f"{roadmap_md}\n\n**Shall we proceed with this roadmap?**"
+
     session.current_index = -1 
     session.status = "AWAITING_PLAN_APPROVAL"
     session.switch_topic_buffer = None # Clear any pending switches
     session.save()
     
     return {
-        "reply": f"{roadmap_md}\n\n**Shall we proceed with this roadmap?** (Type 'Yes' or suggest edits)", 
+        "reply": roadmap_msg, 
         "awaiting_reply": True, 
         "is_complete": False
     }
+
+
 
 def handle_persistent_chat(user, message):
     session = get_or_create_session(user)
@@ -359,15 +398,26 @@ def handle_persistent_chat(user, message):
             session.status = "TEACHING"
             session.save()
             
-            # Determine Style
-            style = "expert"
-            if "practical" in message.lower(): style = "practical"
-            elif "socratic" in message.lower(): style = "socratic"
-            elif "analogy" in message.lower(): style = "analogy"
+            # Determine Style via RL Agent
+            # style = "expert"
+            # if "practical" in message.lower(): style = "practical"
+            # elif "socratic" in message.lower(): style = "socratic"
+            # elif "analogy" in message.lower(): style = "analogy"
+            
+            # Use RL Agent to pick the best style for this topic user
+            style = rl_agent.get_action(session.current_topic)
+            session.last_style_used = style # SAVE STATE for reward
+            session.save()
             
             teaching_data = teach_content(session.subtopics[0], style=style)
             content = teaching_data.get("content", "")
             visualization = teaching_data.get("visualization")
+            
+            # --- EXTRACT QUESTION FROM CONTENT ---
+            # We assume the prompt "End with EXACTLY ONE specific question" logic works.
+            # We'll take the last paragraph as a heuristic for the question.
+            last_question_text = content.split('\n')[-1] if content else ""
+            session.last_question = last_question_text
             
             session.status = "AWAITING_ANSWER"
             session.save()
@@ -411,16 +461,25 @@ def handle_persistent_chat(user, message):
         topic = message
         session.current_topic = topic
         
-        # Generate Rich Roadmap
-        roadmap_md, steps = generate_subtopics_python(topic)
-        session.subtopics = steps
+        # DYNAMIC INIT: Consultant the GAT BRAIN first
+        next_step = recommendation_service.get_next_best_step(user.email, topic)
+        
+        if next_step:
+            # GAT found a specific starting point
+            session.subtopics = [next_step]
+            roadmap_msg = f"Welcome! 🧠 **Knowledge Graph Analysis Complete**.\n\nBased on your mastery profile, the best starting point for **{topic}** is:\n\n# 🚀 **{next_step}**\n\nThe AI predicts you are **100% Ready** for this concept.\n\nShall we start?"
+        else:
+            # Fallback (Graph empty or topic unknown) -> Use LLM
+            roadmap_md, steps = generate_subtopics_python(topic)
+            session.subtopics = steps
+            roadmap_msg = f"{roadmap_md}\n\n**Shall we proceed with this roadmap?**"
              
         session.current_index = -1 
         session.status = "AWAITING_PLAN_APPROVAL"
         session.save()
         
         return {
-            "reply": f"{roadmap_md}\n\n**Shall we proceed with this roadmap?** (Type 'Yes' or suggest edits)", 
+            "reply": roadmap_msg, 
             "awaiting_reply": True, 
             "is_complete": False
         }
@@ -435,7 +494,10 @@ def handle_persistent_chat(user, message):
     current_sub = session.subtopics[session.current_index]
     
     # Analyze Intent
-    analysis = analyze_input(message, session.current_topic, current_sub)
+    # Pass the last question asked by the bot (if any) for better context
+    last_bot_question = getattr(session, "last_question", None)
+    
+    analysis = analyze_input(message, session.current_topic, current_sub, last_bot_question=last_bot_question)
     if not analysis:
         return {"reply": "I didn't catch that. Could you repeat?", "awaiting_reply": True, "is_complete": False}
         
@@ -446,10 +508,6 @@ def handle_persistent_chat(user, message):
         session.status = "AWAITING_SWITCH_CONFIRMATION"
         session.save()
         return {"reply": f"Are you sure you want to stop learning **{session.current_topic}** and switch topics?", "awaiting_reply": True, "is_complete": False}
-        
-    if intent == "DOUBT":
-        # Answer doubt, do not advance
-        return {"reply": analysis.get("reply"), "awaiting_reply": True, "is_complete": False}
         
     if intent == "FINISH":
         session.status = "IDLE"
@@ -480,39 +538,70 @@ def handle_persistent_chat(user, message):
             "is_complete": False
         }
 
+    # --------------------------------------------------------------------------------------
+    # DYNAMIC RECOMMENDATION LOGIC (Replaces Linear List)
+    # --------------------------------------------------------------------------------------
+    
     if intent == "ANSWER":
-        if analysis.get("is_correct"):
-            # Move to next
-            session.current_index += 1
-            if session.current_index >= len(session.subtopics):
-                session.status = "IDLE"
-                # session.current_topic = None # Be careful clearing this if Orchestrator needs to know we finished
-                session.save()
+        # 1. Update Graph Knowledge Tracing (GKT) Model (GNN)
+        if is_correct:
+            # 1. Update Graph Knowledge Tracing (GKT) Model (GNN)
+            new_mastery = gkt_model.update(user.email, current_sub, is_correct, source_type="tutor")
+            mastery_pct = int(new_mastery * 100)
+            
+            # POSITIVE REWARD
+            last_style = getattr(session, "last_style_used", None)
+            if last_style:
+                rl_agent.update(last_style, reward=1.0)
+                
+            # --- METRICS UPDATE ---
+            session.tutor_questions_asked = (session.tutor_questions_asked or 0) + 1
+            session.tutor_questions_correct = (session.tutor_questions_correct or 0) + 1
+            session.save()
+            # ----------------------
+
+            # Check Mastery Threshold (e.g., 0.85)
+            if new_mastery < 0.85:
                 return {
-                    "reply": f"{analysis.get('reply')}\n\n🎉 Fantastic! You've mastered **{session.current_topic}**!\n\n(Reporting completion to Main Agent...)", 
-                    "awaiting_reply": False, 
-                    "is_complete": True
+                    "reply": f"{analysis.get('reply')}\n\nCorrect! But mastery is only **{mastery_pct}%**. Let's practice this concept a bit more.",
+                    "awaiting_reply": True,
+                    "is_complete": False
                 }
-            
-            next_sub = session.subtopics[session.current_index]
-            session.status = "TEACHING"
-            session.save()
-            teaching_data = teach_content(next_sub)
-            content = teaching_data.get("content", "")
-            visualization = teaching_data.get("visualization")
-            
-            session.status = "AWAITING_ANSWER"
-            session.save()
-            
-            success_msg = f"Great job understanding **{current_sub}**!"
-            return {
-                "reply": f"{analysis.get('reply')}\n\n{success_msg}\n\nMoving on:\n\n{content}", 
-                "visualization": visualization,
-                "awaiting_reply": True, 
-                "is_complete": False
-            }
+            else:
+                # MASTERED -> SIGNAL COMPLETION TO ORCHESTRATOR
+                success_msg = f"🎉 Fantastic! Mastery: **{mastery_pct}%**. You've grasped the core concepts of **{current_sub}**!"
+                return {
+                    "reply": f"{analysis.get('reply')}\n\n{success_msg}", 
+                    "awaiting_reply": False, 
+                    "is_complete": True 
+                }
         else:
-            # Incorrect
-            return {"reply": f"{analysis.get('reply')}\n\nTry again?", "awaiting_reply": True, "is_complete": False}
+            # INCORRECT ANSWER
+            # Update GKT (False)
+            new_mastery = gkt_model.update(user.email, current_sub, False, source_type="tutor")
+            mastery_pct = int(new_mastery * 100)
+
+            # NEGATIVE REWARD
+            last_style = getattr(session, "last_style_used", None)
+            if last_style:
+                rl_agent.update(last_style, reward=-0.5)
+
+            # --- METRICS UPDATE ---
+            session.tutor_questions_asked = (session.tutor_questions_asked or 0) + 1
+            # Do NOT increment correct
+            session.save()
+            # ----------------------
+
+            return {"reply": f"{analysis.get('reply')}\n\n(Mastery: {mastery_pct}%) Try again?", "awaiting_reply": True, "is_complete": False}
+
+            
+    if intent == "DOUBT":
+        # Neutral/Negative Reward - Teaching wasn't clear enough?
+        last_style = getattr(session, "last_style_used", None)
+        if last_style:
+            rl_agent.update(last_style, reward=-0.2)
+            
+        # Answer doubt, do not advance
+        return {"reply": analysis.get("reply"), "awaiting_reply": True, "is_complete": False}
 
     return {"reply": "I'm confused. Let's continue.", "awaiting_reply": True, "is_complete": False}

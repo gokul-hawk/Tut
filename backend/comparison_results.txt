@@ -1,0 +1,46 @@
+                         COMPARATIVE BENCHMARK: MGKT vs Traditional Models                          
+====================================================================================================
+
+>>> Scenario A: The 'Gaming' Student
+Description: Guesses on Quiz, Uses Hints to Pass Code (Low Score), No Debug.
+Expectation: Low Mastery (MGKT should reject low quality passes)
+----------------------------------------------------------------------------------------------------
+Step  | Action          | Score || BKT      | DKT      | GKT      | MGKT (Ours)
+----------------------------------------------------------------------------------------------------
+1     | TUTOR (Pass)    | 40    || 0.357    | 0.924    | 0.254    | 0.103    | 
+2     | TUTOR (Fail)    | 20    || 0.162    | 0.115    | 0.158    | 0.104    | 
+3     | CODE (Pass)     | 30    || 0.469    | 0.697    | 0.343    | 0.108    | 
+4     | CODE (Pass)     | 35    || 0.785    | 0.831    | 0.558    | 0.109    | 
+5     | CODE (Pass)     | 40    || 0.936    | 0.871    | 0.694    | 0.109    | 
+----------------------------------------------------------------------------------------------------
+RESULT: MGKT is 0.11 vs DKT 0.87.
+INSIGHT: MGKT successfully suppressed 'Gaming' behavior by 76.2% compared to DKT.
+
+>>> Scenario B: The 'True Expert'
+Description: Perfect across all modes.
+Expectation: High Mastery (All models should agree)
+----------------------------------------------------------------------------------------------------
+Step  | Action          | Score || BKT      | DKT      | GKT      | MGKT (Ours)
+----------------------------------------------------------------------------------------------------
+1     | TUTOR (Pass)    | 100   || 0.357    | 0.924    | 0.254    | 0.164    | 
+2     | TUTOR (Pass)    | 100   || 0.700    | 0.924    | 0.481    | 0.250    | 
+3     | CODE (Pass)     | 100   || 0.904    | 0.924    | 0.647    | 0.340    | 
+4     | CODE (Pass)     | 100   || 0.974    | 0.924    | 0.740    | 0.460    | 
+5     | DEBUG (Pass)    | 100   || 0.993    | 0.924    | 0.799    | 0.563    | 
+----------------------------------------------------------------------------------------------------
+
+>>> Scenario C: The 'Practical Learner'
+Description: Bad at Theory, Good at Code, Excellent at Debug.
+Expectation: High Mastery (MGKT rewards Code/Debug weights)
+----------------------------------------------------------------------------------------------------
+Step  | Action          | Score || BKT      | DKT      | GKT      | MGKT (Ours)
+----------------------------------------------------------------------------------------------------
+1     | TUTOR (Fail)    | 30    || 0.113    | 0.076    | 0.108    | 0.103    | 
+2     | TUTOR (Fail)    | 40    || 0.115    | 0.076    | 0.110    | 0.104    | 
+3     | CODE (Pass)     | 90    || 0.387    | 0.630    | 0.274    | 0.194    | 
+4     | CODE (Pass)     | 95    || 0.725    | 0.796    | 0.500    | 0.314    | 
+5     | DEBUG (Pass)    | 100   || 0.914    | 0.849    | 0.658    | 0.417    | 
+----------------------------------------------------------------------------------------------------
+RESULT: MGKT reached 0.42 despite Tutor failures.
+INSIGHT: MGKT correctly identified mastery via weighted Code/Debug signals.
+====================================================================================================

@@ -1,0 +1,27 @@
+                          SENSITIVITY ANALYSIS REPORT                           
+================================================================================
+
+>>> Experiment A: Signal Weight Sensitivity
+Hypothesis: Debug signals should increase mastery FASTER than Quiz signals.
+--------------------------------------------------------------------------------
+After 5 Successes:
+  Quiz (Tutor) Final Mastery: 0.323
+  Debug        Final Mastery: 0.440
+  Delta: +11.7%
+RESULT: CONFIRMED. Debug signal is more potent.
+
+>>> Experiment B: Noise Resistance
+Hypothesis: MGKT should resist growth if scores are low (Guessing behavior).
+--------------------------------------------------------------------------------
+BKT Final (Blind to Score): 0.993
+MGKT Final (Score Aware):   0.104
+RESULT: CONFIRMED. MGKT suppressed false mastery.
+
+>>> Experiment C: Breakthrough Detection
+Hypothesis: A single Debug Success should outweigh previous failures.
+--------------------------------------------------------------------------------
+Sequence: 5 Fails -> 1 Debug Success
+BKT Final:  0.388 ( dragged down by history)
+MGKT Final: 0.444 ( boosted by high-value signal)
+RESULT: CONFIRMED. MGKT detects breakthrough better.
+================================================================================

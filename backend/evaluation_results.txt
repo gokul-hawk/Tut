@@ -1,0 +1,10 @@
+Metric                    | MGKT (Ours)  | DKT          | BKT         
+----------------------------------------------------------------------
+1. Mastery Accuracy (MAE) | 0.2558       | 0.1218       | 0.2019       | 
+2. RMSE                   | 0.3315       | 0.2254       | 0.2904       | 
+3. Log Loss               | 0.6524       | 0.4985       | 1.0567       | 
+4. Calibration Error      | 0.0500       | 0.0500       | 0.0500       | 
+5. Noise Result (Low=Good) | 0.7701       | 0.9241       | 0.9934       | 
+6. Breakthrough Delta     | 0.0085       | 0.1961       | 0.2722       | 
+7. Causal Violations %    | 0.0000       | 0.0000       | 2.9762       | 
+8. Signal Fidelity (D/Q)  | 0.0128       | 0.0760       | 0.0419       | 

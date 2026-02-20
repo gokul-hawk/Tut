@@ -21,6 +21,9 @@ const RightPanel = () => {
                 <button className="tool-button" onClick={() => navigate('/quiz')}>
                     Concept-Explorer
                 </button>
+                <button className="tool-button" style={{ background: 'linear-gradient(45deg, #6b21a8, #c084fc)' }} onClick={() => navigate('/map')}>
+                    🧠 Knowledge Map (GAT)
+                </button>
                 <button className="tool-button" onClick={() => navigate('/coding')}>
                     Coding Challenges
                 </button>

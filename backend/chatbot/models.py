@@ -18,6 +18,12 @@ class TutorSession(models.Model):
     current_index = models.IntegerField(default=0)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default="IDLE")
     switch_topic_buffer = models.CharField(max_length=255, blank=True, null=True) # Stores the proposed new topic while awaiting confirmation
+    last_question = models.TextField(blank=True, null=True) # Stores the last question asked by the bot for context
+    
+    # metrics for Scoring Engine (Understanding Phase)
+    tutor_questions_asked = models.IntegerField(default=0)
+    tutor_questions_correct = models.IntegerField(default=0)
+    
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):

@@ -1,0 +1,31 @@
+
+>>> Scenario 1: The 'Theory Master' (Understanding Phase)
+------------------------------------------------------------------------------------------------------------------------
+Action                         | Raw Score  | Threshold (>80) | BKT Update?  | New Mastery (Total | T/C/D)        
+------------------------------------------------------------------------------------------------------------------------
+Perfect Quiz (5/5)             | 100.00     | True            | Positive     | 0.16 (0.36/0.10/0.10)
+Good Quiz (4/5)                | 80.00      | True            | Positive     | 0.25 (0.70/0.10/0.10)
+Fail Code (Too many hints)     | 0.00       | False           | Negative     | 0.25 (0.70/0.11/0.10)
+
+>>> Scenario 2: The 'Practical Hacker' (Applying Phase)
+------------------------------------------------------------------------------------------------------------------------
+Action                         | Raw Score  | Threshold (>80) | BKT Update?  | New Mastery (Total | T/C/D)        
+------------------------------------------------------------------------------------------------------------------------
+Bad Quiz (2/5)                 | 40.00      | False           | Negative     | 0.10 (0.11/0.10/0.10)
+Perfect Code (Easy)            | 20.00      | False           | Negative     | 0.11 (0.11/0.11/0.10)
+Good Code (Medium)             | 27.00      | False           | Negative     | 0.11 (0.11/0.12/0.10)
+
+>>> Scenario 3: The 'Analyst' (Analysis Phase)
+------------------------------------------------------------------------------------------------------------------------
+Action                         | Raw Score  | Threshold (>80) | BKT Update?  | New Mastery (Total | T/C/D)        
+------------------------------------------------------------------------------------------------------------------------
+Perfect Debug                  | 100.00     | True            | Positive     | 0.20 (0.10/0.10/0.36)
+Struggle Debug                 | 25.00      | False           | Negative     | 0.12 (0.10/0.10/0.16)
+
+====================================================================================================
+INSIGHTS:
+1. 'Negative' BKT Update means the mastery DROPPED because the score < 80.
+   -> Just 'passing' the code isn't enough; you need a HIGH Quality Score.
+2. Notice how 'Perfect Debug' drastically spikes the Total Score?
+   -> Debug weight is 0.40, effectively lifting the entire mastery ceiling.
+====================================================================================================

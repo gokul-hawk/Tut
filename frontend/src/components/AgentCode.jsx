@@ -281,9 +281,21 @@ results_json
                     const token = userData?.access;
 
                     // Call AGENT Success Report
+                    const aiUsageCount = assistantMessages.filter(msg => msg.role === 'user').length;
+
+                    const codeStats = {
+                        passed: true,
+                        total_tests: results.length,
+                        ai_usage: aiUsageCount,
+                        difficulty: currentQuestion.difficulty || "medium"
+                    };
+
                     const successRes = await axios.post(
                         "http://127.0.0.1:8000/api/main-agent/report_success/",
-                        {},
+                        {
+                            source: "code",
+                            code_stats: codeStats
+                        },
                         { headers: { Authorization: `Bearer ${token}` } }
                     );
 

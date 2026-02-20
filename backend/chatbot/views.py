@@ -236,3 +236,87 @@ def regenerate_visualization_view(request):
 
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def get_graph_data(request):
+    """
+    Returns the Knowledge Graph for Visualization.
+    Nodes: Concepts (color-coded by mastery).
+    Edges: Prerequisites (thickness by attention/weight).
+    """
+    try:
+        from .services.gkt_model import GKTModel
+        gkt = GKTModel()
+        user_email = request.user.email
+        
+        # 1. Get State
+        mastery_vector = gkt._get_user_vector(user_email)
+        concepts = gkt.concepts
+        adj = gkt.adj_matrix
+        
+        nodes = []
+        edges = []
+        
+        # 2. Build Nodes (ReactFlow format)
+        # Simple Auto-Layout (Levels)
+        # We calculate "Depth" of each node (number of ancestors)
+        # This is a hacky layout. Frontend 'dagre' is better, but let's give a baseline.
+        depths = {}
+        for i in range(len(concepts)):
+            depths[i] = 0
+            
+        # 10 passes to propagate depth
+        for _ in range(10):
+            for i in range(len(concepts)):
+                prereqs = [j for j in range(len(concepts)) if adj[i][j] > 0]
+                if prereqs:
+                    max_p = max([depths[p] for p in prereqs])
+                    depths[i] = max_p + 1
+                    
+        # Group by depth for X coordinates
+        level_counts = {}
+        
+        for i, concept in enumerate(concepts):
+            mastery = float(mastery_vector[i])
+            
+            d = depths[i]
+            if d not in level_counts: level_counts[d] = 0
+            x_pos = level_counts[d] * 150 + (d % 2 * 75)
+            y_pos = d * 100
+            level_counts[d] += 1
+            
+            nodes.append({
+                "id": str(i), # Use Index as ID for simplicity in edges
+                "type": "default", # ReactFlow type
+                "data": { 
+                    "label": concept, 
+                    "mastery": mastery,
+                    "status": "mastered" if mastery > 0.8 else "in-progress" if mastery > 0.1 else "locked"
+                },
+                "position": { "x": x_pos, "y": y_pos }
+            })
+            
+        # 3. Build Edges
+        # adj[v][u] = 1 means u -> v
+        for v in range(len(concepts)):
+            for u in range(len(concepts)):
+                if adj[v][u] > 0:
+                    weight = 1.0 # Default/Attention
+                    # If we had attention, we'd query it here.
+                    # For now, thickness = base weight.
+                    
+                    edges.append({
+                        "id": f"e{u}-{v}",
+                        "source": str(u),
+                        "target": str(v),
+                        "animated": True,
+                        "style": { "stroke": "#b1b1b7", "strokeWidth": 2 },
+                    })
+                    
+        return Response({"nodes": nodes, "edges": edges}, status=status.HTTP_200_OK)
+        
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

@@ -1,0 +1,49 @@
+
+--------------------------------------------------------------------------------
+            1. MOMENT OF LEARNING (Step Index crossing 0.85 Mastery)            
+--------------------------------------------------------------------------------
+Category             | Model                    | Avg Step to Mastery 
+--------------------------------------------------------------------------------
+Deep Struggle        | BKT (Trained)            | 7.7                 
+Deep Struggle        | DKT                      | Never               
+Deep Struggle        | GKT                      | Never               
+Deep Struggle        | MGKT (Context-Aware)     | 5.5                 
+Instant Expert       | BKT (Trained)            | 3.0                 
+Instant Expert       | DKT                      | Never               
+Instant Expert       | GKT                      | Never               
+Instant Expert       | MGKT (Context-Aware)     | 2.8                 
+
+--------------------------------------------------------------------------------
+                        2. INERTIA (Skepticism Analysis)                        
+               Avg Mastery Gain (Delta P) after a CORRECT answer                
+--------------------------------------------------------------------------------
+Category             | Model                    | Gain (Trust)
+--------------------------------------------------------------------------------
+Lucky Guesser        | BKT (Trained)            | +0.1727
+Lucky Guesser        | DKT                      | +0.0593
+Lucky Guesser        | GKT                      | -0.0010
+Lucky Guesser        | MGKT (Context-Aware)     | +0.1421
+Deep Struggle        | BKT (Trained)            | +0.2423
+Deep Struggle        | DKT                      | +0.0000
+Deep Struggle        | GKT                      | -0.0003
+Deep Struggle        | MGKT (Context-Aware)     | +0.1982
+
+--------------------------------------------------------------------------------
+             3. TRANSFER ANALYSIS (AUC: Declarative vs Procedural)              
+--------------------------------------------------------------------------------
+Model                    | Tutor AUC (Decl.)  | Code AUC (Proc.)   | Gap
+--------------------------------------------------------------------------------
+BKT (Trained)            | 0.2721             | 0.3873             | 0.1152
+DKT                      | 0.3346             | 0.4626             | 0.1280
+GKT                      | 0.6711             | 0.4494             | 0.2217
+MGKT (Context-Aware)     | 0.2582             | 0.4226             | 0.1643
+
+--------------------------------------------------------------------------------
+                 4. LEARNING CURVE (RMSE at Step 1 vs Step 10)                  
+--------------------------------------------------------------------------------
+Model                    | RMSE @ Op 1     | RMSE @ Op 10    | Improvement
+--------------------------------------------------------------------------------
+BKT (Trained)            | 0.5000          | 0.5046          | -0.0046
+DKT                      | 0.5000          | 0.4999          | +0.0001
+GKT                      | 0.5000          | 0.4976          | +0.0024
+MGKT (Context-Aware)     | 0.5000          | 0.7521          | -0.2521

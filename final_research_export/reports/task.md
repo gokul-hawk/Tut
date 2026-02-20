@@ -1,0 +1,111 @@
+- [x] Draft BKT Methodology Section for Research Paper <!-- id: 0 -->
+    - [x] Define multisignal parameters (priors, slip, guess, transit) <!-- id: 1 -->
+    - [x] Create artifact `research_bkt_methodology.md` <!-- id: 2 -->
+- [x] Implement Graph-Constrained Dataset Generator <!-- id: 3 -->
+    - [x] Create `backend/chatbot/services/dataset_generator.py` <!-- id: 4 -->
+    - [x] Run generator to create `large_student_data.json` <!-- id: 5 -->
+- [x] Document Data Generation Methodology <!-- id: 6 -->
+    - [x] Create artifact `research_data_generation.md` <!-- id: 7 -->
+- [x] Document Model Comparison/Contribution <!-- id: 8 -->
+    - [x] Create artifact `research_comparison.md` <!-- id: 9 -->
+- [x] Document Recommendation & Readiness Logic <!-- id: 10 -->
+    - [x] Create artifact `research_recommendation_logic.md` <!-- id: 11 -->
+- [x] Run Comparative Simulation <!-- id: 12 -->
+    - [x] Create `backend/simulate_comparison.py` <!-- id: 13 -->
+    - [x] Run simulation and report results <!-- id: 14 -->
+- [x] Run REAL DKT Simulation <!-- id: 15 -->
+    - [x] Create `backend/simulate_real_dkt.py` with NumPy RNN <!-- id: 16 -->
+    - [x] Verify DKT "Data Starvation" hypothesis <!-- id: 17 -->
+- [x] Run Comprehensive Edge Case Simulation <!-- id: 18 -->
+    - [x] Update `backend/simulate_full_comparison.py` with multiple scenarios <!-- id: 19 -->
+    - [x] Document findings <!-- id: 20 -->
+- [x] Run Massive 80-Case Simulation <!-- id: 21 -->
+    - [x] Update `backend/simulate_full_comparison.py` with procedural generators <!-- id: 22 -->
+    - [x] Update `research_evaluation.md` with aggregated statistical results <!-- id: 23 -->
+- [x] Implement Real BKT/GKT Simulators <!-- id: 24 -->
+    - [x] Create `backend/simulate_real_bkt.py` <!-- id: 25 -->
+    - [x] Create `backend/simulate_real_gkt.py` <!-- id: 26 -->
+    - [x] Run definitive 80-case comparison with real math <!-- id: 27 -->
+- [x] Finalize Evaluation Results <!-- id: 28 -->
+    - [x] Read definitive numbers <!-- id: 29 -->
+    - [x] Update `research_evaluation.md` <!-- id: 30 -->
+- [x] Test GAT Propagation <!-- id: 31 -->
+    - [x] Create `backend/test_gat_propagation.py` <!-- id: 32 -->
+    - [x] Demonstrate "Readiness Score" boost after mastery <!-- id: 33 -->
+- [x] Create Research Presentation Guide <!-- id: 34 -->
+    - [x] Create `research_presentation_guide.md` with step-by-step defense <!-- id: 35 -->
+- [x] Add SOTA Comparison <!-- id: 36 -->
+    - [x] Update `research_presentation_guide.md` with defense (SQKT, DPKT, Multimodal) <!-- id: 37 -->
+    - [x] Update `research_comparison.md` with formal literature review <!-- id: 38 -->
+- [x] Generate Final Research Report <!-- id: 39 -->
+    - [x] Create `research_abstract.md` <!-- id: 40 -->
+    - [x] Create `research_project_report.md` consolidating all findings <!-- id: 41 -->
+- [x] Explain Model Architecture <!-- id: 42 -->
+    - [x] Create `research_architecture_faq.md` for BKT vs GAT & Recommendation Logic <!-- id: 43 -->
+    - [x] Update `research_data_generation.md` to explain ASSISTments vs Synthetic Data <!-- id: 44 -->
+    - [x] Update `research_architecture_faq.md` with GAT Training Process <!-- id: 45 -->
+    - [x] Update `research_architecture_faq.md` with Homogeneous vs Heterogeneous Graph critique <!-- id: 46 -->
+    - [x] Update `research_architecture_faq.md` with Dynamic vs Static defense (Scenario Walkthrough) <!-- id: 47 -->
+    - [x] Update `research_architecture_faq.md` with Multi-Granular defense <!-- id: 48 -->
+    - [x] Update `research_architecture_faq.md` with Failure Mechanics (Blocking) <!-- id: 49 -->
+    - [x] Update `research_architecture_faq.md` with Recommendation Hierarchy (Readiness > Mastery) <!-- id: 50 -->
+- [x] Explain Graph Discovery <!-- id: 51 -->
+    - [x] Update `research_data_generation.md` to include Causal Discovery as Future Work <!-- id: 52 -->
+- [x] Define Research Formalisms <!-- id: 53 -->
+    - [x] Create `research_mgkt_framework.md` (4-Tuple Definition) <!-- id: 54 -->
+    - [x] Create `research_problem_formulation.md` (Challenges & Objectives) <!-- id: 55 -->
+    - [x] Create `research_problem_inputs.md` (Specific Questionnaire Answers) <!-- id: 56 -->
+    - [x] Create `research_mathematical_proofs.md` (Consolidated Formula Sheet) <!-- id: 57 -->
+    - [x] Create `research_system_specifications.md` (10-Point System Configuration) <!-- id: 58 -->
+- [x] Create System Workflow <!-- id: 59 -->
+    - [x] Create `research_project_workflow.md` (Step-by-Step Lifecycle) <!-- id: 60 -->
+    - [x] Update workflow to reflect AgentTutor -> AgentCode -> AgentDebug sequence <!-- id: 61 -->
+    - [x] Expand `research_presentation_guide.md` with detailed narrative script <!-- id: 62 -->
+    - [x] Explain Depth vs Breadth Priority in architecture FAQ <!-- id: 63 -->
+    - [x] Document Individual Scoring Mechanisms (Quiz/Code/Debug) <!-- id: 64 -->
+        - [x] Create `research_scoring_mechanisms.md` <!-- id: 65 -->
+        - [x] Update `research_project_report.md` with Negative Scoring section <!-- id: 66 -->
+- [x] Document Limitations & Future Work <!-- id: 67 -->
+    - [x] Create `research_limitations_future_work.md` <!-- id: 68 -->
+- [x] Generate Research Paper Titles <!-- id: 69 -->
+    - [x] Create `research_paper_titles.md` <!-- id: 70 -->
+- [x] Document System Breakdown <!-- id: 71 -->
+    - [x] Create `research_system_breakdown.md` (10-Point Spec) <!-- id: 72 -->
+- [x] Phase 9: Research Dataset Trajectory <!-- id: 108 -->
+    - [x] Extract `expert_0` trace from `research_dataset.json` <!-- id: 109 -->
+    - [x] Generate `research_learning_curve.png` <!-- id: 110 -->
+    - [x] Document Research Trajectory Analysis <!-- id: 111 -->
+- [x] Implementation Phase: Quiz-Driven Flow <!-- id: 73 -->
+    - [x] Update `AgentTutor.jsx` to capture quiz stats (correct/total) <!-- id: 74 -->
+    - [x] Update `AgentTutor.jsx` to auto-trigger quiz on subtopic completion <!-- id: 75 -->
+    - [x] Update Backend `views.py` to parse `quiz_stats` <!-- id: 76 -->
+    - [x] Update Backend `scoring_engine.py` to calculate Tutor Score from payload <!-- id: 77 -->
+    - [x] Verify End-to-End Quiz -> Score -> Next Subtopic transition <!-- id: 78 -->
+- [x] Implementation Phase: Code-Driven Flow <!-- id: 79 -->
+    - [x] Update `AgentCode.jsx` to enforce "Success -> Quiz -> Stats" flow <!-- id: 80 -->
+    - [x] Create `SimpleCodeQuiz` component (or reuse QuizPanel if possible) <!-- id: 81 -->
+    - [x] Update Backend `views.py` to handle Code Quiz Scores <!-- id: 82 -->
+    - [x] Update Backend `scoring_engine.py` to weight Code Quizzes correctly (0.35) <!-- id: 83 -->
+- [x] Implementation Phase: Debug-Driven Flow <!-- id: 84 -->
+    - [x] Update `AgentDebugger.jsx` to capture debugging stats (reasoning/attempts) <!-- id: 85 -->
+    - [x] Add "Reasoning Check" (Verified via backend) <!-- id: 86 -->
+    - [x] Update Backend `views.py` to handle Debug Scores <!-- id: 87 -->
+    - [x] Update Backend `scoring_engine.py` to weight Debug Scores correctly (0.40) <!-- id: 88 -->
+- [x] Phase 5: GNN Training with GAT Layer <!-- id: 89 -->
+    - [x] Create `train_gnn_weights.py` (GAT Training Loop with PyTorch) <!-- id: 91 -->
+    - [/] Refine `simulate_auc_benchmark.py` (Concept-Aware GAT Inference) <!-- id: 92 -->
+    - [x] Run Initial GAT Benchmark (0.47 AUC - Concept agnostic) <!-- id: 93 -->
+    - [x] Generate Evaluation Report for GAT vs Baselines <!-- id: 94 -->
+- [ ] Phase 6: Sensitivity & Ablation Study <!-- id: 95 -->
+    - [x] Create `simulate_sensitivity_analysis.py` (Sensitivity Analysis) <!-- id: 96 -->
+    - [x] Generate `analysis_sensitivity_report.md` <!-- id: 97 -->
+    - [x] Create `simulate_ablation_study.py` (Ablation Study) <!-- id: 98 -->
+    - [x] Generate `analysis_ablation_report.md` <!-- id: 99 -->
+- [x] Phase 7: AUC Benchmark Study <!-- id: 100 -->
+    - [x] Create `simulate_auc_benchmark.py` (Synthetic Data & ROC calc) <!-- id: 101 -->
+    - [x] Train 'MockBKT' Baseline (`train_bkt.py`) <!-- id: 103 -->
+    - [x] Generate `analysis_auc_report.md` <!-- id: 102 -->
+- [x] Phase 8: Behavior Stress Test (Expert Streak) <!-- id: 104 -->
+    - [x] Create `simulate_expert_streak.py` <!-- id: 105 -->
+    - [x] Run streak analysis (Tutor -> Code -> Debug) <!-- id: 106 -->
+    - [x] Generate `analysis_expert_streak.md` <!-- id: 107 -->

@@ -15,6 +15,7 @@ const AgentDebugger = () => {
     const [verifying, setVerifying] = useState(false);
     const [feedback, setFeedback] = useState(null);
     const [error, setError] = useState(null);
+    const [attempts, setAttempts] = useState(0);
 
     // Pyodide State
     const [editorCode, setEditorCode] = useState("");
@@ -106,6 +107,8 @@ const AgentDebugger = () => {
 
             if (response.data.is_correct) {
                 await reportSuccess();
+            } else {
+                setAttempts(prev => prev + 1);
             }
         } catch (err) {
             console.error(err);
@@ -123,7 +126,15 @@ const AgentDebugger = () => {
 
             const res = await axios.post(
                 "http://localhost:8000/api/main-agent/report_success/",
-                { failed_topics: [], source: "debug" }, // Debugger success implies no failed topics for this step
+                {
+                    failed_topics: [],
+                    source: "debug",
+                    debug_stats: {
+                        attempts: attempts + 1, // Current successful attempt
+                        explanation_len: userExplanation.length,
+                        passed: true
+                    }
+                },
                 config
             );
 

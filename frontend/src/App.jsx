@@ -15,14 +15,15 @@ import AgentQuiz from './components/AgentQuiz';
 import AgentCode from './components/AgentCode';
 import AgentDebugger from './components/AgentDebugger';
 import AgentTutor from './components/AgentTutor';
+import KnowledgeGraph from './components/KnowledgeGraph'; // Import
 
 import ChatWidget from './components/EmbeddableChat/ChatWidget'; // Import
 
 // Test Page for Widget
 const TestWidgetPage = () => (
-  
-    <ChatWidget />
-  
+
+  <ChatWidget />
+
 );
 
 // A wrapper component to protect routes
@@ -47,6 +48,15 @@ function App() {
         <Route path='/agent-code' element={<AgentCode />} />
         <Route path='/agent-debugger' element={<AgentDebugger />} />
         <Route path='/agent-tutor' element={<AgentTutor />} />
+        <Route path='/knowledge-map' element={
+          <div style={{ display: 'flex', height: '100vh', width: '100vw' }}>
+             <Dashboard /> {/* Hacky Reuse: Dashboard renders left/right/center. Center is Chat. We want to replace Center? */}
+             {/* Better: KnowledgeGraph is a standalone page or overlay. Let's make it a standalone route first. */}
+             {/* Actually, I should probably render KnowledgeGraph INSIDE Dashboard layout if possible, or just standalone for clarity. */}
+          </div>
+        } />
+        {/* Let's try standalone first to avoid layout conflicts */}
+        <Route path='/map' element={<KnowledgeGraph />} />
         <Route path='/coding' element={<PythonRunner />} />
         <Route path='/tutor' element={<TutorApp />} />
         <Route path='/debugger' element={<Debugger />} />

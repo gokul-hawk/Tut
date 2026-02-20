@@ -1,9 +1,11 @@
 import json
 from chatbot.services.groq_service import GroqService
+from .vector_router import VectorRouter
 
 class RouterAgent:
     def __init__(self):
         self.groq = GroqService()
+        self.vector_router = VectorRouter()
 
     def route(self, message):
         """
@@ -18,6 +20,17 @@ class RouterAgent:
             "topic": "extracted topic or None"
         }
         """
+        # 0. Fast Path: Vector Search
+        vector_result = self.vector_router.route(message)
+        if vector_result:
+            intent = vector_result["route"]
+            # Short-circuit for CHAT or Simple Commands (where topic is likely implied)
+            # If message is long, we might miss a topic change, so use LLM.
+            # Heuristic: Short message (< 5 words) + Vector Hit = Safe to short-circuit.
+            if len(message.split()) < 5:
+                print(f"[Router] Fast Path Triggered: {intent}")
+                return {"route": intent, "topic": None, "style": "comprehensive"}
+        
         prompt = f"""
         You are the Router for an AI Tutor.
         Classify the User Message into one of these intents:

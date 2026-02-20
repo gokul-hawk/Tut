@@ -28,41 +28,132 @@ def main_agent_chat(request):
         traceback.print_exc()
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
 @api_view(["POST"])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
 def report_success(request):
     """
     Endpoint for tools (Coding/Quiz/Debug) to report success.
-    Advances the user's learning plan or cycles independent mode.
+    Now fully integrated with the Weighted Scoring Engine.
     """
     try:
         session = AgentSession.objects(user=request.user).first()
+        tutor_session = None
+        from chatbot.models import TutorSession
+        try:
+             tutor_session = TutorSession.objects.get(user_email=request.user.email)
+        except: pass
         
+        # --- SCORING ENGINE INTEGRATION ---
+        from .services.scoring_engine import ScoringEngine
+        scorer = ScoringEngine()
+        
+        # Identify Phase/Source
+        source = request.data.get("source", "tutor")
+        
+        # 1. Fetch/Calculate Scores
+        score_breakdown = {}
+        
+        # A. Understanding Phase (Tutor)
+        # Fetch stats from TutorSession OR Request Payload (Quiz)
+        quiz_stats = request.data.get("quiz_stats")
+        if quiz_stats:
+            # Direct Quiz Report (Overrides Session)
+            tutor_score = scorer.calculate_quiz_score(quiz_stats)
+            t_correct = quiz_stats.get('correct', 0)
+            t_asked = quiz_stats.get('total', 0)
+            print(f"Quiz Report Received: {quiz_stats} -> Score: {tutor_score}")
+        else:
+            # Fallback to Session Logic
+            t_asked = getattr(tutor_session, "tutor_questions_asked", 0) if tutor_session else 0
+            t_correct = getattr(tutor_session, "tutor_questions_correct", 0) if tutor_session else 0
+            tutor_score = scorer.calculate_tutor_score(t_asked, t_correct)
+        
+        # B. Applying Phase (Code)
+        # Fetch stats from Request Payload (Code)
+        code_stats = request.data.get("code_stats")
+        if code_stats:
+            # Direct Code Report
+            # Engine expects a list of questions, so we wrap our single session stat
+            code_score = scorer.calculate_code_score([code_stats])
+            print(f"Code Report Received: {code_stats} -> Score: {code_score}")
+        else:
+            # Fallback estimation (e.g. if skipped or legacy call)
+            code_score = 0 
+        
+        # C. Analysis Phase (Debug)
+        debug_stats = request.data.get("debug_stats")
+        debug_reasoning = request.data.get("debug_reasoning", "full" if source == "debug" else "none")
+
+        if debug_stats:
+            # Direct Debug Report
+            debug_score = scorer.calculate_debug_score(debug_stats)
+            print(f"Debug Report Received: {debug_stats} -> Score: {debug_score}")
+        else:
+            # Fallback Legacy
+            # If source is debug but no stats, assume full pass (legacy behavior) or 0? 
+            # Existing code assumed 100 if source==debug.
+            debug_score = scorer.calculate_debug_score(debug_reasoning)
+
+        # --- AGGREGATE ---
+        # Note: If we are in 'Tutor' phase, we might only have Tutor Score.
+        # But for 'Mastery', we might accumulate?
+        # For this turn-based system, let's treat the 'Source' as the active phase contributing to the plan.
+        
+        final_score = scorer.aggregate_final_score(tutor_score, code_score, debug_score)
+        
+        print(f"--- SCORE REPORT [{source.upper()}] ---")
+        print(f"Understanding (Tutor): {tutor_score} (Stats: {t_correct}/{t_asked})")
+        print(f"Applying (Code):       {code_score}")
+        print(f"Analysis (Debug):      {debug_score}")
+        print(f"FINAL WEIGHTED SCORE:  {final_score}")
+        print("-----------------------------------")
+
+        # --- BKT UPDATE ---
+        from chatbot.services.gkt_model import GKTModel
+        gkt = GKTModel()
+        req_topic = request.data.get("topic") or (session.current_topic if session else None)
+        
+        if req_topic:
+            # We use the source type to pick the reliability params
+            # EFFICIENCY THRESHOLD LOGIC: Score >= 80 is a "Success" for BKT
+            
+            # CRITICAL FIX: Use component score, not weighted final score
+            if source == "tutor":
+                signal_score = tutor_score
+            elif source == "code":
+                signal_score = code_score
+            elif source == "debug":
+                signal_score = debug_score
+            else:
+                signal_score = final_score
+
+            is_mastery_signal = float(signal_score) >= 80.0
+            gkt.update(request.user.email, req_topic, is_correct=is_mastery_signal, source_type=source)
+
         # ------------------------------------------------------------------
         # SCENARIO A: INDEPENDENT MODE (No Active Plan)
         # ------------------------------------------------------------------
         if not session or not session.current_plan:
             current_topic = session.current_topic if session else "General"
-            source = request.data.get("source")
             
             # State Machine: Quiz -> Tutor -> Code -> Debug -> Dashboard
             if source == "quiz":
                 reply_text = f"Diagnosis complete! Let's dive into the theory of **{current_topic}**."
                 action_view = "tutor"
             elif source == "tutor":
-                reply_text = f"Theory on **{current_topic}** covered. Time to write some code!"
+                reply_text = f"Theory on **{current_topic}** covered. Score: {tutor_score:.1f}. Time to write some code!"
                 action_view = "code"
             elif source == "code":
-                reply_text = f"Coding challenge passed! Now let's fix a buggy implementation of **{current_topic}**."
+                reply_text = f"Coding challenge passed! Score: {code_score}. Now let's fix a bug."
                 action_view = "debugger"
             elif source == "debug":
-                reply_text = f"Excellent! You've mastered **{current_topic}** across all domains. Returning found dashboard."
+                reply_text = f"Excellent! Final Weighted Score: **{final_score}**. Returning to dashboard."
                 action_view = "dashboard"
             else:
-                # Default / Fallback from unknown sources
                 reply_text = f"Step completed. Continuing with **{current_topic}**."
-                action_view = "tutor" # Default to tutor if unsure
+                action_view = "tutor" 
 
             result = {
                 "reply": reply_text,
@@ -85,27 +176,31 @@ def report_success(request):
         
         # 1. Complete current step
         completed_step = session.current_plan.pop(0)
-        print(1,completed_step)
+
         # 2. Capture Failed Topics (if any)
         failed_topics = request.data.get("failed_topics", [])
         if failed_topics:
             session.failed_prereqs = failed_topics
         else:
             session.failed_prereqs = [] 
-        print(failed_topics)
-        session.last_step_result = {"step": completed_step, "status": "completed", "failed_topics": failed_topics}
+
+        session.last_step_result = {
+            "step": completed_step, 
+            "status": "completed", 
+            "failed_topics": failed_topics,
+            "score": final_score  # Store the score!
+        }
         session.save()
-        print(session.current_plan)
         
         # 3. Trigger next step immediately via Orchestrator
         orchestrator = MainAgentOrchestrator(request.user)
-        msg = f"Step {completed_step.get('topic')} completed."
-        print(3,msg)
+        msg = f"Step {completed_step.get('topic')} completed. Score: {final_score}."
+        
         if failed_topics:
             safe_topics = [str(t) for t in failed_topics]
             msg += f" User FAILED prerequisites: {', '.join(safe_topics)}."
             
-            # Re-queue current step to preserve flow (it will be consumed by the next report_success)
+            # Re-queue current step to preserve flow
             session.current_plan.insert(0, completed_step)
             session.save()
             
@@ -129,15 +224,24 @@ def report_success(request):
             return Response(result, status=status.HTTP_200_OK)
             
         else:
-            msg += " User PASSED."
-            result = orchestrator.advance_plan(msg)
-            print(4,result)
-            return Response(result, status=status.HTTP_200_OK)
+             # PROMOTION LOGIC based on Score
+             # If just finished Code, check if we need Debug or Promote
+             if source == "code":
+                 decision = scorer.determine_promotion(final_score) # Uses aggregate, but mainly code influence
+                 if decision == "DEBUG":
+                      msg += " (Review suggested: Debugging)"
+                 elif decision == "REMEDIATE":
+                      msg += " (Score too low - Remediation)"
+            
+             msg += " User PASSED."
+             result = orchestrator.advance_plan(msg)
+             return Response(result, status=status.HTTP_200_OK)
 
     except Exception as e:
         import traceback
         traceback.print_exc()
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
 @api_view(["GET"])
 @authentication_classes([JWTAuthentication])
@@ -173,38 +277,47 @@ def welcome_message(request):
     """
     user = request.user
     
-    # 1. Fetch Context
-    # Get recent questions
+    # 1. Get Context from Session & Graph
     try:
-        recent_questions = UserQuestion.objects.filter(user=user).order_by('-created_at')[:3]
-        recent_topics = [q.topic for q in recent_questions]
-    except Exception:
-        recent_topics = []
+        session = AgentSession.objects(user=user).first()
+        current_topic = session.current_topic if session else "General"
+    except:
+        current_topic = "General"
+        
+    from chatbot.services.recommendation_service import RecommendationService
+    rec_service = RecommendationService()
+    
+    # Ask Brain for the absolute best next step
+    recommended_topic = rec_service.get_next_best_step(user.email, current_topic)
+    
+    if not recommended_topic:
+        recommended_topic = "Python Basics"
 
     # Dynamic Conversational Prompt for Main Agent
     prompt = f"""
     You are the Main Orchestrator of CobraTutor.
     User: {user.username}
-    Context - Recent Topics: {", ".join(recent_topics) if recent_topics else "None (New User)"}
+    Current Focus: {current_topic}
+    AI Recommendation: {recommended_topic}
     
     Task:
-    Generate a welcome message that sounds like a proactive tutor suggesting specific, exciting activities.
+    Generate a welcome message that proactively pushes the user towards the recommended topic.
     
-    Structure (Strictly follow this layout, but GENERATE your own content for the bullets):
-    "Hi {user.username}! What shall we tackle today?
-    - [Suggest a Theory Session on a topic]
-    - [Suggest a Visualization of an algorithm]
-    - [Suggest a Coding Challenge]
-    - [Suggest Exam/Interview Prep for a topic]
-    - [Suggest a Practical/Real-world application]
+    Structure (Strictly follow this layout):
+    "Hi {user.username}! 🧠 I've analyzed your Knowledge Graph.
     
-    I recommend we start with: [Pick one specific topic]"
+    I strongly recommend we focus on: **{recommended_topic}**.
+    
+    Here is the optimal plan:
+    - 📖 **Theory**: Master the concepts of {recommended_topic}.
+    - 💻 **Code**: Solve a challenge on {recommended_topic}.
+    - 🐞 **Debug**: Fix a broken implementation.
+    
+    Shall we start with the Theory?"
     
     Guidelines:
-    - Do NOT use generic placeholders like "[Topic]". Fill them with actual, interesting CS topics (e.g. Heaps, DP, React Hooks, deadlock).
-    - If the user has recent topics, try to suggest related advanced concepts.
-    - If the user is new, suggest fundamental but interesting topics (e.g. Binary Search, OOP, API design).
-    - Be creative!
+    - Be encouraging but authoritative (you are the expert AI).
+    - If the recommendation is specific, hype it up!
        
     Output strictly JSON:
     {{
@@ -220,10 +333,12 @@ def welcome_message(request):
         else:
              # Fallback
              data = {
-                 "message": f"Hi {user.username}! Ready to code?\n- Learn Python Basics?\n- Visualize Sorting Algorithms?\n- Practice LeetCode Easy?\n\nI recommend we start with: Python Lists."
+                 "message": f"Hi {user.username}! 🧠 I've analyzed your Knowledge Graph.\n\nI strongly recommend we focus on: **{recommended_topic}**.\n\nShall we start?"
              }
         return Response(data, status=status.HTTP_200_OK)
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         return Response({
-            "message": f"Hi {user.username}! Ready to learn?\n- Python Basics?\n- Data Structures?\n\nI recommend: Variables."
+            "message": f"Hi {user.username}! Ready to learn **{recommended_topic}**?"
         }, status=status.HTTP_200_OK)

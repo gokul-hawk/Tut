@@ -1,0 +1,31 @@
+
+================================================================================
+                       MGKT FORMAL BEHAVIOURAL TEST SUITE                       
+================================================================================
+
+Running Test: Eureka Detection...
+  - Mastery after 10 failures: 0.1364
+  - Mastery after 2 successes: 0.9893
+  - PASS: Recovery detected rapidly.
+
+Running Test: Guess Immunity...
+  - Step 1 Mastery (AI usage=15): 0.0447
+  - Step 2 Mastery (AI usage=15): 0.0193
+  - Step 3 Mastery (AI usage=15): 0.0082
+  - PASS: Model correctly skeptical of guessers.
+
+Running Test: Expert Stability...
+  - Mastery after 5 successes: 0.9887
+  - Mastery after 1 slip: 0.9641
+  - PASS: Model stable against minor performance noise.
+
+================================================================================
+                               FINAL TEST REPORT                                
+================================================================================
+Eureka Detection              : PASSED
+Guess Immunity                : PASSED
+Expert Stability              : PASSED
+================================================================================
+                         OVERALL SYSTEM STATUS: HEALTHY                         
+================================================================================
+

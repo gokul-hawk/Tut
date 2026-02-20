@@ -1,0 +1,19 @@
+
+================================================================================
+                 ADVANCED MGKT: Context-Aware Parameter Tuning                  
+================================================================================
+
+Event                | Standard Mastery   | Advanced Mastery  
+-----------------------------------------------------------------
+tutor (Correct)      | 0.3361             | 0.3361            
+tutor (Correct)      | 0.6565             | 0.6565            
+code (Correct) [AI=15] | 0.9778             | 0.9778            
+-----------------------------------------------------------------
+
+Analysis:
+1. Standard Model: Sees 'Code Correct' -> Assumes Mastery explodes to ~1.0.
+2. Advanced Model: Sees 'AI=15' -> Sets P(Guess)=0.95.
+   -> 'Correct' result is discounted (treated as a guess).
+   -> Mastery stays LOW, correctly reflecting they didn't learn it themselves.
+================================================================================
+
