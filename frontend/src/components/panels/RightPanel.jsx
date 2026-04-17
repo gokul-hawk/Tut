@@ -9,20 +9,11 @@ const RightPanel = () => {
         <div className="right-panel overflow-y">
             <h3>Tools</h3>
             <div className="tools-grid overflow-y-auto">
-                <button className="tool-button" onClick={() => navigate('/concept-explorer')}>
-                    Quiz
-                </button>
-                <button className="tool-button" onClick={() => navigate('/Playground')}>
-                    Coding Playground
-                </button>
                 <button className="tool-button" onClick={() => navigate('/debugger')}>
                     Debugging Zone
                 </button>
                 <button className="tool-button" onClick={() => navigate('/quiz')}>
                     Concept-Explorer
-                </button>
-                <button className="tool-button" onClick={() => navigate('/map')}>
-                    Knowledge Map (GAT)
                 </button>
                 <button className="tool-button" onClick={() => navigate('/coding')}>
                     Coding Challenges

@@ -66,7 +66,7 @@ const Playground = () => {
         <div className="bg-white p-5 md:p-6 rounded-2xl shadow-xl border border-indigo-100 max-w-4xl mx-auto">
           <h2 className="text-xl md:text-2xl font-bold text-indigo-700 mb-4">Describe Your Visualization</h2>
           <textarea
-            className="w-full p-4 border  border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-white h-28 md:h-32 resize-none"
+            className="w-full p-4 border  border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-indigo-600 h-28 md:h-32 resize-none"
             placeholder="E.g., Show how bubble sort swaps adjacent elements with animations..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
@@ -77,11 +77,10 @@ const Playground = () => {
             <button
               onClick={handleVisualize}
               disabled={isLoading}
-              className={`px-6 py-3 w-full sm:w-auto font-semibold text-white rounded-xl shadow-md transition duration-300 ${
-                isLoading
+              className={`px-6 py-3 w-full sm:w-auto font-semibold text-white rounded-xl shadow-md transition duration-300 ${isLoading
                   ? 'bg-indigo-400 cursor-not-allowed'
                   : 'bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] active:scale-[0.98]'
-              }`}
+                }`}
             >
               {isLoading ? (
                 <div className="flex items-center space-x-2">
